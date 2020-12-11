@@ -39,7 +39,48 @@ main {
   height: 100%;
   width: 70%;
 }
+/* header */
+header img {
+  width: 50px;
+}
+header i {
+  cursor: pointer;
+  padding: 10px;
+  color: #B2B2B2;
+}
+/* user */
+.info_main {
+  width: 80%;
+  display: flex;
 
+}
+.utility_user  {
+  width: 20%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.active_user {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+/* chat user */
+.active_user_message {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.chat_info{
+  width: 80%;
+}
+.utility_chat {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 20%;
+}
+
+/* main */
 .notifications {
   height: 10%;
   background-color: #8EDAFC;
@@ -59,7 +100,37 @@ main {
 
 .active_message_container {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+}
+.main_message {
+  height: 90%;
+  background-image: url(../img/background_chat.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.send,
+.recived {
+  padding: 20px;
+
+}
+.send p{
+  padding: 10px 7px;
+  float: right;
+  width: 40%;
+  background-color: #D5F9BA;
+  border-radius: 7px;
+}
+.recived p {
+  padding: 10px 7px;
+  float: left;
+  width: 40%;
+  background-color: #FFFFFF;
+  border-radius: 7px;
+}
+.send:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 .user_text {
   width: 100%;
@@ -88,6 +159,7 @@ main {
 .user_in_contact{
   padding: 10px;
   display: flex;
+  flex-wrap: wrap;
 }
 .user_in_contact  img {
   width: 50px;
@@ -98,4 +170,18 @@ main {
 }
 .active_chat{
   background-color: #E9EBEB;
+}
+.contact_name {
+  width: 60%;
+}
+.user_in_contact  p {
+  padding: 5px;
+  font-size: 10px;
+  color: lightgrey;
+}
+.user_in_contact span {
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 10px;
+  color: lightgrey;
 }
