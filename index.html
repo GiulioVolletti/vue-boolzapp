@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <!-- mycss -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- cdn vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>Boolzapp</title>
   </head>
   <body>
-  <div class="app_container">
+  <div id="app_container">
       <div class="boolz_app">
         <header>
           <div class="main_user">
@@ -22,10 +24,26 @@
 
         <main>
           <div class="contacts_list">
+            <div class="notifications">
 
+            </div>
+            <div class="search">
+              <input type="text" name="" value="" placeholder="    Cerca o inizia una nuova chat">
+            </div>
+            <div class="contact">
+              <div v-for="contact in contacts"> <h2 >{{ contact.name }}</h2>
+
+              </div>
+
+            </div>
           </div>
-          <div class="wip_active_message">
 
+          <div class="active_message_container">
+            <div class="user_text">
+              <i class="far fa-smile"></i>
+              <input type="text" name="" value="" placeholder="Scrivi un messaggio">
+              <i class="fas fa-microphone"></i>
+            </div>
           </div>
         </main>
 
