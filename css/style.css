@@ -85,3 +85,17 @@ main {
 .contact {
   padding: 15px;
 }
+.user_in_contact{
+  padding: 10px;
+  display: flex;
+}
+.user_in_contact  img {
+  width: 50px;
+
+}
+.user_in_contact h3 {
+  margin-left: 10px;
+}
+.active_chat{
+  background-color: #E9EBEB;
+}
