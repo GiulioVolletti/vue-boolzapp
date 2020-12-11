@@ -1,0 +1,40 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.app_container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #009688  20%, #DDDBD1 20% , #D2DBDC 100%);
+}
+
+.boolz_app {
+  width: 80%;
+  height: 95%;
+  background-color: white;
+}
+
+header {
+  height: 12%;
+  background-color: #EAEAEA;
+  display:flex;
+}
+
+main {
+  height: 88%;
+  display:flex;
+}
+
+.main_user,
+.contacts_list {
+  width: 30%;
+  border-right: 1px solid lightgrey;
+}
+.active_user_message
+.wip_active_message {
+  width: 70%;
+}
