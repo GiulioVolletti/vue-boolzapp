@@ -48,6 +48,10 @@ header i {
   padding: 10px;
   color: #B2B2B2;
 }
+header h2,
+header p {
+  padding-left: 15px;
+}
 /* user */
 .info_main {
   width: 80%;
@@ -107,6 +111,7 @@ header i {
   background-image: url(../img/background_chat.png);
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-y: scroll;
 }
 .send,
 .recived {
@@ -155,6 +160,8 @@ header i {
 }
 .contact {
   padding: 15px;
+  height: calc(90% - 46px);
+  overflow-y: scroll;
 }
 .user_in_contact{
   padding: 10px;
