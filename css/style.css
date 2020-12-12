@@ -78,6 +78,12 @@ header p {
 .chat_info{
   width: 80%;
 }
+.chat_info > p {
+  padding: 5px;
+  padding-left: 15px;
+  font-size: 10px;
+  color: grey;
+}
 .utility_chat {
   display: flex;
   flex-direction: row-reverse;
@@ -113,26 +119,26 @@ header p {
   background-size: cover;
   overflow-y: scroll;
 }
-.send,
-.recived {
+.sent,
+.received {
   padding: 20px;
 
 }
-.send p{
+.sent p{
   padding: 10px 7px;
   float: right;
   width: 40%;
   background-color: #D5F9BA;
   border-radius: 7px;
 }
-.recived p {
+.received p {
   padding: 10px 7px;
   float: left;
   width: 40%;
   background-color: #FFFFFF;
   border-radius: 7px;
 }
-.send:after {
+.sent:after {
   content: "";
   display: table;
   clear: both;
@@ -164,13 +170,14 @@ header p {
   overflow-y: scroll;
 }
 .user_in_contact{
+  cursor: pointer;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
 }
 .user_in_contact  img {
   width: 50px;
-
+  height: auto;
 }
 .user_in_contact h3 {
   margin-left: 10px;
@@ -179,16 +186,16 @@ header p {
   background-color: #E9EBEB;
 }
 .contact_name {
-  width: 60%;
+  width: 50%;
 }
 .user_in_contact  p {
   padding: 5px;
   font-size: 10px;
-  color: lightgrey;
+  color: grey;
 }
 .user_in_contact span {
   margin-left: 5px;
   padding: 5px;
   font-size: 10px;
-  color: lightgrey;
+  color: grey;
 }

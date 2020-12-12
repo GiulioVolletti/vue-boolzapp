@@ -4,6 +4,11 @@ var boolzApp = new Vue (
   {
     el:'#app_container',
     data: {
+      messageArray: [],
+      lastLogin : "",
+      texAdded: "",
+      activeImage: "_1",
+      names: "Michele",
       contacts: [
       	{
       		name: 'Michele',
@@ -89,6 +94,50 @@ var boolzApp = new Vue (
   		],
   	 },
       ],
-    },
+      },
+
+      methods: {
+        chatOpen: function(index){
+
+          // console.log(index);
+          this.activeImage = "";
+          this.names = "";
+          this.messageArray = [];
+          var lastMessage = this.contacts[index].messages.length;
+          this.lastLogin = this.contacts[index].messages[lastMessage - 1].date;
+          console.log(this.lastLogin);
+
+          this.messageArray = this.contacts[index].messages;
+          // console.log(this.messageArray);
+          this.names = this.contacts[index].name;
+          this.activeImage = this.contacts[index].avatar;
+
+        },
+        lastDateInContact: function (index2) {
+          var lastMessage = this.contacts[index2].messages.length;
+          var lastLoginContact = this.contacts[index2].messages[lastMessage - 1].date;
+          return lastLoginContact
+        },
+        lastMessageInContact: function (index2) {
+          var lastMessage = this.contacts[index2].messages.length;
+          var lastMessageContact = this.contacts[index2].messages[lastMessage - 1].text;
+          return lastMessageContact
+        },
+        addText: function () {
+          console.log(this.texAdded);
+          var currentMessage = {
+            date: '',
+            text: "",
+            status: 'sent'
+          };
+          var currentHours = (new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() );
+          var currentDay = (new Date().getDate() + "/" + new Date().getMonth() + "/" + new Date().getFullYear() )
+          currentMessage.date = currentDay + " " + currentHours ;
+          console.log(currentMessage.date);
+          currentMessage.text = this.texAdded;
+          this.messageArray.push(currentMessage);
+          this.texAdded = "";
+        },
+    }
   }
 );

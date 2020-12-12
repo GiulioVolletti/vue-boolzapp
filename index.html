@@ -17,7 +17,7 @@
           <div class="main_user">
             <div class="active_user">
               <div class="info_main">
-                <img src="img/avatar_1.png" alt="">
+                <img src="https://img.favpng.com/18/18/18/computer-icons-icon-design-avatar-png-favpng-X29r5WhWMXVYvNsYXkR4iBgwf.jpg" alt="">
                 <h2> Nome Utente</h2>
               </div>
 
@@ -30,10 +30,10 @@
           </div>
 
           <div class="active_user_message">
-            <img src="img/avatar_1.png" alt="">
+            <img :src="'img/avatar' + activeImage + '.png'" alt="">
             <div class="chat_info">
-              <h2> Michele</h2>
-              <p>ultimo accesso</p>
+              <h2> {{names}}</h2>
+              <p>{{lastLogin}}</p>
             </div>
             <div class="utility_chat">
               <i class="fas fa-ellipsis-v"></i>
@@ -48,33 +48,38 @@
             <div class="notifications">
 
             </div>
+
+            <!-- search in contacts -->
             <div class="search">
               <input type="text" name="" value="" placeholder="    Cerca o inizia una nuova chat">
             </div>
+
+          <!-- contat list -->
             <div class="contact">
-              <div class="user_in_contact" v-for="contact in contacts">
-                <img :src="'img/avatar' + contact.avatar + '.png'" alt="user">
+              <div v-on:click="chatOpen(number)"  class="user_in_contact" v-for="(contact, number) in contacts">
+                <img  :src="'img/avatar' + contact.avatar + '.png'" alt="user">
                 <div class="contact_name">
                   <h3 >{{ contact.name }}</h3>
-                  <span>message</span>
+                  <span>{{ lastMessageInContact(number) }}</span>
                 </div>
-                <p>15:30:55</p>
+                <p>{{ lastDateInContact(number) }}</p>
               </div>
 
             </div>
           </div>
 
+          <!-- message container -->
           <div class="active_message_container">
             <div  class="main_message">
-              <div class="send"> <p>message user 2</p></div>
-              <div class="send"><p>message user 2</p></div>
-              <div class="recived"><p>message 1</p></div>
+              <div v-for="(message, number) in messageArray" :class="message.status"> <p>{{message.text}}</p>
+              </div>
             </div>
 
+            <!-- new message from user -->
             <div class="user_text">
               <i class="far fa-smile"></i>
-              <input type="text" name="" value="" placeholder="Scrivi un messaggio">
-              <i class="fas fa-microphone"></i>
+              <input v-model="texAdded" v-on:keyup.enter="addText" type="text" name="" value="" placeholder="Scrivi un messaggio">
+              <i  class="fas fa-microphone"></i>
             </div>
           </div>
         </main>
