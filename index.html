@@ -13,6 +13,7 @@
   <body>
   <div id="app_container">
       <div class="boolz_app">
+        <!-- header -->
         <header>
           <div class="main_user">
             <div class="active_user">
@@ -43,10 +44,15 @@
           </div>
         </header>
 
+        <!-- main -->
         <main>
           <div class="contacts_list">
             <div class="notifications">
-
+              <i class="fas fa-bell-slash"></i>
+              <div >
+                <h5>Ricevi notifiche di nuovi messaggi</h5>
+                <a href="#">Attiva notifiche desktop</a>
+              </div>
             </div>
 
             <!-- search in contacts -->
@@ -71,7 +77,11 @@
           <!-- message container -->
           <div class="active_message_container">
             <div  class="main_message">
-              <div v-for="(message, number) in messageArray" :class="message.status"> <div v-if="visibles">{{message.text}}</div>
+              <div v-for="(message, number) in messageArray" :class="message.status"> <div class="message" v-if="visibles">
+                <i class="fas fa-chevron-down"></i>
+                {{message.text}}
+                <p>{{message.date}}</p>
+              </div>
               </div>
             </div>
 
