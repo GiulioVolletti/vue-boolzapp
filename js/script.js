@@ -7,9 +7,9 @@ var boolzApp = new Vue (
       messageArray: [],
       lastLogin : "",
       texAdded: "",
+      searchText: "",
       activeImage: "",
       names: "",
-      receivedInterval:"",
       visibles: false,
       contacts: [
       	{
@@ -128,6 +128,7 @@ var boolzApp = new Vue (
           return lastMessageContact
         },
 
+        // user add text
         addText: function () {
           // console.log(this.texAdded);
           var currentMessage = {
@@ -146,6 +147,8 @@ var boolzApp = new Vue (
           this.messageArray.push(currentMessage);
           this.texAdded = "";
         },
+
+        // contact add text
         received: function () {
           setTimeout( () => {
           var newMessage = {
@@ -162,11 +165,19 @@ var boolzApp = new Vue (
           boolzApp.messageArray.push(newMessage);
           // console.log("interval", newMessage.date )
         }, 1000);
-
-
         },
 
-
+        searchName: function() {
+          for (var i = 0; i < this.contacts.length; i++) {
+            console.log(this.contacts[i].name);
+            if (this.contacts[i].name == this.searchText) {
+              
+              console.log("here", this.contacts[i].name);
+            };
+          }
+          console.log("here", this.searchText);
+          this.searchText = "";
+        },
     }
   }
 );
