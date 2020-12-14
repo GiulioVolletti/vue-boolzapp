@@ -170,7 +170,7 @@ var boolzApp = new Vue (
         filter: function (){
           const arrayFiltered = this.contacts.filter(
           (element) => {
-            if (element.name == this.searchText) {
+            if (element.name.includes(this.searchText)) {
               return element;
 
             } else if (this.searchText == "") {
@@ -178,8 +178,7 @@ var boolzApp = new Vue (
             }
           })
           this.contacts = arrayFiltered;
-
-          console.log(arrayFiltered);
+          // console.log(arrayFiltered);
         },
         removeMessage: function (item) {
           console.log(this.messageArray[item]);
