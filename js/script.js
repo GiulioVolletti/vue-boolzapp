@@ -10,6 +10,7 @@ var boolzApp = new Vue (
       searchText: "",
       activeImage: "",
       names: "",
+      visible: false,
       visibles: false,
       contacts: [
       	{
@@ -173,7 +174,7 @@ var boolzApp = new Vue (
           (element) => {
             if (element.name == this.searchText) {
               return element;
-              
+
             } else if (this.searchText == "") {
               return this.contacts
             }
@@ -181,8 +182,11 @@ var boolzApp = new Vue (
           this.contacts = arrayFiltered;
 
           console.log(arrayFiltered);
-
         },
+        removeMessage: function (item) {
+          console.log(this.messageArray[item]);
+          this.messageArray.splice(item, 1)
+        }
     }
   }
 );

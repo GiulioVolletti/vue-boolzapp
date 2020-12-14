@@ -58,7 +58,7 @@ header p {
 .info_main {
   width: 80%;
   display: flex;
-
+  align-items: center;
 }
 .utility_user  {
   width: 20%;
@@ -77,7 +77,7 @@ header p {
   align-items: center;
 }
 
-.chat_info{
+.chat_info {
   width: 80%;
 }
 .chat_info > p {
@@ -124,6 +124,51 @@ header p {
   border-radius: 2px;
   padding: 5px;
 }
+
+/* contact  */
+.contact {
+  padding: 15px;
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+.user_in_contact{
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.user_in_contact  img {
+  width: 50px;
+  height: auto;
+}
+.user_in_contact h3 {
+  margin-left: 10px;
+}
+.active_chat{
+  background-color: #E9EBEB;
+}
+.contact_name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 60%;
+}
+.user_in_contact  p {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+  font-size: 10px;
+  color: grey;
+}
+.user_in_contact span {
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 10px;
+  color: grey;
+}
+
 /* text message */
 .active_message_container {
   display: flex;
@@ -139,7 +184,6 @@ header p {
 .sent,
 .received {
   padding: 20px;
-
 }
 .sent div {
   padding: 10px 7px 20px 7px;
@@ -209,48 +253,4 @@ header p {
 }
 .user_text > i {
   cursor: pointer
-}
-
-/* contact  */
-.contact {
-  padding: 15px;
-  flex-grow: 1;
-  overflow-y: scroll;
-}
-.user_in_contact{
-  position: relative;
-  cursor: pointer;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-}
-.user_in_contact  img {
-  width: 50px;
-  height: auto;
-}
-.user_in_contact h3 {
-  margin-left: 10px;
-}
-.active_chat{
-  background-color: #E9EBEB;
-}
-.contact_name {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 60%;
-}
-.user_in_contact  p {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 5px;
-  font-size: 10px;
-  color: grey;
-}
-.user_in_contact span {
-  margin-left: 5px;
-  padding: 5px;
-  font-size: 10px;
-  color: grey;
 }

@@ -62,7 +62,7 @@
 
           <!-- contat list -->
             <div class="contact">
-              <div v-on:click="chatOpen(number)"  class="user_in_contact" v-for="(contact, number) in contacts">
+              <div  v-on:click="chatOpen(number)"  class="user_in_contact" v-for="(contact, number) in contacts">
                 <img  :src="'img/avatar' + contact.avatar + '.png'" alt="user">
                 <div class="contact_name">
                   <h3 >{{ contact.name }}</h3>
@@ -78,7 +78,7 @@
           <div class="active_message_container">
             <div  class="main_message">
               <div v-for="(message, number) in messageArray" :class="message.status"> <div class="message" v-if="visibles">
-                <i class="fas fa-chevron-down"></i>
+                <i v-on:click="removeMessage(number)" class="fas fa-chevron-down"></i>
                 {{message.text}}
                 <p>{{message.date}}</p>
               </div>
