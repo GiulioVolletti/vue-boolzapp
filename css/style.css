@@ -97,6 +97,7 @@ header p {
   height: 10%;
   background-color: #8EDAFC;
 }
+/* search */
 .search {
   background-color: #EAEAEA;
   padding: 10px 5px;
@@ -109,7 +110,7 @@ header p {
   border-radius: 2px;
   padding: 5px;
 }
-
+/* text message */
 .active_message_container {
   display: flex;
   flex-direction: column;
@@ -132,6 +133,7 @@ header p {
   width: 40%;
   background-color: #D5F9BA;
   border-radius: 7px;
+  word-break: break-word;
 }
 .received div {
   padding: 10px 7px;
@@ -139,6 +141,7 @@ header p {
   width: 40%;
   background-color: #FFFFFF;
   border-radius: 7px;
+  word-break: break-word;
 }
 .sent:after {
   content: "";
@@ -155,17 +158,18 @@ header p {
   padding: 10px;
   color: grey;
 }
-
+/* input user text */
 .user_text > input {
   width: 70%;
   border: none;
   border-radius: 2px;
   padding: 7px;
 }
-
 .user_text > i {
   cursor: pointer
 }
+
+/* contact  */
 .contact {
   padding: 15px;
   flex-grow: 1;
@@ -189,6 +193,9 @@ header p {
   background-color: #E9EBEB;
 }
 .contact_name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   width: 60%;
 }
 .user_in_contact  p {

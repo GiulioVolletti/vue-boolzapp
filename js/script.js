@@ -167,16 +167,21 @@ var boolzApp = new Vue (
         }, 1000);
         },
 
-        searchName: function() {
-          for (var i = 0; i < this.contacts.length; i++) {
-            console.log(this.contacts[i].name);
-            if (this.contacts[i].name == this.searchText) {
+
+        filter: function (){
+          const arrayFiltered = this.contacts.filter(
+          (element) => {
+            if (element.name == this.searchText) {
+              return element;
               
-              console.log("here", this.contacts[i].name);
-            };
-          }
-          console.log("here", this.searchText);
-          this.searchText = "";
+            } else if (this.searchText == "") {
+              return this.contacts
+            }
+          })
+          this.contacts = arrayFiltered;
+
+          console.log(arrayFiltered);
+
         },
     }
   }
