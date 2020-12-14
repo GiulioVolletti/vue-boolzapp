@@ -106,7 +106,7 @@ var boolzApp = new Vue (
           this.messageArray = [];
           var lastMessage = this.contacts[index].messages.length;
           this.lastLogin = this.contacts[index].messages[lastMessage - 1].date;
-          console.log(this.lastLogin);
+          // console.log(this.lastLogin);
           this.visibles = this.contacts[index].visible;
 
           this.messageArray = this.contacts[index].messages;
@@ -129,7 +129,7 @@ var boolzApp = new Vue (
         },
 
         addText: function () {
-          console.log(this.texAdded);
+          // console.log(this.texAdded);
           var currentMessage = {
             date: '',
             text: "",
@@ -138,7 +138,7 @@ var boolzApp = new Vue (
           var currentHours = (new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() );
           var currentDay = (new Date().getDate() + "/" + new Date().getMonth() + "/" + new Date().getFullYear() )
           currentMessage.date = currentDay + " " + currentHours ;
-          console.log(currentMessage.date);
+          // console.log(currentMessage.date);
           currentMessage.text = this.texAdded;
 
 
@@ -160,7 +160,8 @@ var boolzApp = new Vue (
 
 
           boolzApp.messageArray.push(newMessage);
-          // console.log("interval", newMessage.date )}, 1000);
+          // console.log("interval", newMessage.date )
+        }, 1000);
 
 
         },
