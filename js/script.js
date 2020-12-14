@@ -10,7 +10,6 @@ var boolzApp = new Vue (
       searchText: "",
       activeImage: "",
       names: "",
-      visible: false,
       visibles: false,
       contacts: [
       	{
@@ -114,7 +113,6 @@ var boolzApp = new Vue (
           // console.log(this.messageArray);
           this.names = this.contacts[index].name;
           this.activeImage = this.contacts[index].avatar;
-
         },
 
         lastDateInContact: function (index2) {
