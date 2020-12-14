@@ -9,6 +9,7 @@ var boolzApp = new Vue (
       texAdded: "",
       activeImage: "",
       names: "",
+      receivedInterval:"",
       visibles: false,
       contacts: [
       	{
@@ -140,9 +141,31 @@ var boolzApp = new Vue (
           console.log(currentMessage.date);
           currentMessage.text = this.texAdded;
 
+
+          this.received();
           this.messageArray.push(currentMessage);
           this.texAdded = "";
         },
+        received: function () {
+          setTimeout( () => {
+          var newMessage = {
+              date: "",
+              text: "ok",
+              status: 'received'
+            };
+          var currentHours = (new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() );
+          var currentDay = (new Date().getDate() + "/" + new Date().getMonth() + "/" + new Date().getFullYear() )
+
+          newMessage.date = currentDay + " " + currentHours ;
+
+
+          boolzApp.messageArray.push(newMessage);
+          // console.log("interval", newMessage.date )}, 1000);
+
+
+        },
+
+
     }
   }
 );
