@@ -29,7 +29,7 @@
             </div>
           </div>
 
-          <div class="active_user_message">
+          <div v-if="visibles" class="active_user_message">
             <img :src="'img/avatar' + activeImage + '.png'" alt="">
             <div class="chat_info">
               <h2> {{names}}</h2>
@@ -71,7 +71,7 @@
           <!-- message container -->
           <div class="active_message_container">
             <div  class="main_message">
-              <div v-for="(message, number) in messageArray" :class="message.status"> <p>{{message.text}}</p>
+              <div v-for="(message, number) in messageArray" :class="message.status"> <div v-if="visibles">{{message.text}}</div>
               </div>
             </div>
 

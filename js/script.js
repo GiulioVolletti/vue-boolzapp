@@ -7,8 +7,9 @@ var boolzApp = new Vue (
       messageArray: [],
       lastLogin : "",
       texAdded: "",
-      activeImage: "_1",
-      names: "Michele",
+      activeImage: "",
+      names: "",
+      visibles: false,
       contacts: [
       	{
       		name: 'Michele',
@@ -98,7 +99,6 @@ var boolzApp = new Vue (
 
       methods: {
         chatOpen: function(index){
-
           // console.log(index);
           this.activeImage = "";
           this.names = "";
@@ -106,6 +106,7 @@ var boolzApp = new Vue (
           var lastMessage = this.contacts[index].messages.length;
           this.lastLogin = this.contacts[index].messages[lastMessage - 1].date;
           console.log(this.lastLogin);
+          this.visibles = this.contacts[index].visible;
 
           this.messageArray = this.contacts[index].messages;
           // console.log(this.messageArray);
@@ -113,16 +114,19 @@ var boolzApp = new Vue (
           this.activeImage = this.contacts[index].avatar;
 
         },
+
         lastDateInContact: function (index2) {
           var lastMessage = this.contacts[index2].messages.length;
           var lastLoginContact = this.contacts[index2].messages[lastMessage - 1].date;
           return lastLoginContact
         },
+
         lastMessageInContact: function (index2) {
           var lastMessage = this.contacts[index2].messages.length;
           var lastMessageContact = this.contacts[index2].messages[lastMessage - 1].text;
           return lastMessageContact
         },
+
         addText: function () {
           console.log(this.texAdded);
           var currentMessage = {
@@ -135,6 +139,7 @@ var boolzApp = new Vue (
           currentMessage.date = currentDay + " " + currentHours ;
           console.log(currentMessage.date);
           currentMessage.text = this.texAdded;
+
           this.messageArray.push(currentMessage);
           this.texAdded = "";
         },
