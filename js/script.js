@@ -107,12 +107,16 @@ var boolzApp = new Vue (
           var lastMessage = this.contacts[index].messages.length;
           this.lastLogin = this.contacts[index].messages[lastMessage - 1].date;
           // console.log(this.lastLogin);
-          this.visibles = this.contacts[index].visible;
+          this.visibles = true;
 
           this.messageArray = this.contacts[index].messages;
           // console.log(this.messageArray);
           this.names = this.contacts[index].name;
           this.activeImage = this.contacts[index].avatar;
+          for (var i = 0; i < this.contacts.length; i++) {
+            this.contacts[i].visible = true;
+          };
+          this.contacts[index].visible = false;
         },
 
         lastDateInContact: function (index2) {
@@ -181,8 +185,12 @@ var boolzApp = new Vue (
           // console.log(arrayFiltered);
         },
         removeMessage: function (item) {
-          console.log(this.messageArray[item]);
-          this.messageArray.splice(item, 1)
+          if (this.messageArray.length == 1) {
+            this.messageArray.splice(item, 1, {})
+          } else {
+            this.messageArray.splice(item, 1)
+          }
+          // console.log(this.messageArray[item]);
         }
     }
   }

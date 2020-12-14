@@ -62,7 +62,7 @@
 
           <!-- contat list -->
             <div class="contact">
-              <div  v-on:click="chatOpen(number)"  class="user_in_contact" v-for="(contact, number) in contacts">
+              <div v-bind:class="{ active_chat : !contacts[number].visible }" v-on:click="chatOpen(number)"  class="user_in_contact" v-for="(contact, number) in contacts">
                 <img  :src="'img/avatar' + contact.avatar + '.png'" alt="user">
                 <div class="contact_name">
                   <h3 >{{ contact.name }}</h3>
