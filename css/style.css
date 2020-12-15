@@ -118,7 +118,6 @@ header p {
   text-align: center;
 }
 .search > input {
-  font-family:Arial, FontAwesome;
   width: calc(100% - 5px);
   border: none;
   border-radius: 2px;
@@ -137,6 +136,9 @@ header p {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
+}
+.user_in_contact:hover{
+  background-color: #E9EBEB;
 }
 .user_in_contact  img {
   width: 50px;
@@ -185,7 +187,7 @@ header p {
 .received {
   padding: 20px;
 }
-.sent div {
+.sent > div {
   padding: 10px 7px 20px 7px;
   float: right;
   width: 40%;
@@ -194,7 +196,7 @@ header p {
   word-break: break-word;
   position: relative;
 }
-.received div {
+.received > div {
   padding: 10px 7px 20px 7px;
   float: left;
   width: 40%;
@@ -222,6 +224,7 @@ header p {
   color: #B1B1B1;
 }
 .message i {
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -230,8 +233,32 @@ header p {
   cursor: pointer;
   color: #B1B1B1;
 }
-
-
+.message:hover i{
+  display: block;
+}
+.display_none {
+  width: 120px;
+  height: 70px;
+  padding: 5px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: white;
+  position: absolute;
+  color: #B1B1B1;
+  box-shadow: 2px 2px #888888;
+  top: 20px;
+  right: 10px;
+  z-index: 2;
+}
+.display_none > span {
+  cursor: pointer;
+  padding: 5px;
+}
+.display_flex_item {
+  display: flex;
+}
 /* bottom text area */
 .user_text {
   width: 100%;

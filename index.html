@@ -78,8 +78,12 @@
           <div class="active_message_container">
             <div  class="main_message">
               <div v-for="(message, number) in messageArray" :class="message.status"> <div class="message" v-if="visibles">
-                <i v-on:click="removeMessage(number)" class="fas fa-chevron-down"></i>
+                <i v-on:click="changeShowIndex(number)" class="fas fa-chevron-down"></i>
                 {{message.text}}
+                <div  v-bind:class="(number == showIndex) ? 'display_flex_item ': '' " class="display_none">
+                  <span>Message info</span>
+                  <span v-on:click="removeMessage(number)"> Delete </span>
+                </div>
                 <p>{{message.date}}</p>
               </div>
               </div>

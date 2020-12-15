@@ -11,6 +11,7 @@ var boolzApp = new Vue (
       activeImage: "",
       names: "",
       visibles: false,
+      showIndex: null,
       contacts: [
       	{
       		name: 'Michele',
@@ -104,7 +105,7 @@ var boolzApp = new Vue (
           this.activeImage = "";
           this.names = "";
           this.messageArray = [];
-          var lastMessage = this.contacts[index].messages.length;
+          let lastMessage = this.contacts[index].messages.length;
           this.lastLogin = this.contacts[index].messages[lastMessage - 1].date;
           // console.log(this.lastLogin);
           this.visibles = true;
@@ -184,11 +185,18 @@ var boolzApp = new Vue (
           this.contacts = arrayFiltered;
           // console.log(arrayFiltered);
         },
+        // remove message
+        changeShowIndex: function (numberArray) {
+          console.log(numberArray);
+          this.showIndex = numberArray
+        },
         removeMessage: function (item) {
           if (this.messageArray.length == 1) {
             this.messageArray.splice(item, 1, {})
+            this.showIndex = null;
           } else {
-            this.messageArray.splice(item, 1)
+            this.messageArray.splice(item, 1);
+            this.showIndex = null;
           }
           // console.log(this.messageArray[item]);
         }
