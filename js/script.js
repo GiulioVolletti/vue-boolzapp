@@ -12,6 +12,7 @@ var boolzApp = new Vue (
       names: "",
       visibles: false,
       showIndex: null,
+      activeUserNumber: null,
       contacts: [
       	{
       		name: 'Michele',
@@ -114,10 +115,9 @@ var boolzApp = new Vue (
           // console.log(this.messageArray);
           this.names = this.contacts[index].name;
           this.activeImage = this.contacts[index].avatar;
-          for (var i = 0; i < this.contacts.length; i++) {
-            this.contacts[i].visible = true;
-          };
-          this.contacts[index].visible = false;
+          this.activeUserNumber = index;
+          console.log(this.activeUserNumber);
+        
         },
 
         lastDateInContact: function (index2) {

@@ -62,7 +62,7 @@
 
           <!-- contat list -->
             <div class="contact">
-              <div v-bind:class="{ active_chat : !contacts[number].visible }" v-on:click="chatOpen(number)"  class="user_in_contact" v-for="(contact, number) in contacts">
+              <div v-bind:class="(activeUserNumber == number ) ? 'active_chat' : ''" v-on:click="chatOpen(number)"  class="user_in_contact" v-for="(contact, number) in contacts">
                 <img  :src="'img/avatar' + contact.avatar + '.png'" alt="user">
                 <div class="contact_name">
                   <h3 >{{ contact.name }}</h3>
@@ -76,24 +76,31 @@
 
           <!-- message container -->
           <div class="active_message_container">
-            <div  class="main_message">
-              <div v-for="(message, number) in messageArray" :class="message.status"> <div class="message" v-if="visibles">
-                <i v-on:click="changeShowIndex(number)" class="fas fa-chevron-down"></i>
-                {{message.text}}
-                <div  v-bind:class="(number == showIndex) ? 'display_flex_item ': '' " class="display_none">
-                  <span>Message info</span>
-                  <span v-on:click="removeMessage(number)"> Delete </span>
+            <template v-if="visibles">
+
+              <div  class="main_message">
+                <div v-for="(message, number) in messageArray" :class="message.status">
+                  <div class="message" >
+                    <i v-on:click="changeShowIndex(number)" class="fas fa-chevron-down"></i>
+                    {{message.text}}
+                    <div  v-bind:class="(number == showIndex) ? 'display_flex_item ': '' " class="display_none">
+                      <span>Message info</span>
+                      <span v-on:click="removeMessage(number)"> Delete </span>
+                    </div>
+                    <p>{{message.date}}</p>
+                  </div>
                 </div>
-                <p>{{message.date}}</p>
               </div>
-              </div>
-            </div>
+            </template>
 
             <!-- new message from user -->
             <div class="user_text">
-              <i class="far fa-smile"></i>
-              <input v-model="texAdded" v-on:keyup.enter="addText" type="text" name="" value="" placeholder="Scrivi un messaggio">
-              <i  class="fas fa-microphone"></i>
+              <template v-if="visibles">
+
+                <i class="far fa-smile"></i>
+                <input v-model="texAdded" v-on:keyup.enter="addText" type="text" name="" value="" placeholder="Scrivi un messaggio">
+                <i  class="fas fa-microphone"></i>
+              </template>
             </div>
           </div>
         </main>

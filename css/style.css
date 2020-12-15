@@ -175,6 +175,7 @@ header p {
 .active_message_container {
   display: flex;
   flex-direction: column;
+  background-color: #EAEAEA;
 }
 .main_message {
   height: 90%;
